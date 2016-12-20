@@ -1,0 +1,14 @@
+version: '2'
+services:
+  openlmis:
+    image: "hansun/openlmis-training:2.0"
+    ports:
+      - "8080:8080"
+    env_file:
+      - ./db.env
+    links:
+      - trainingdb
+  trainingdb:
+    image: "postgres:9.4"
+    env_file:
+      - ./db.env
