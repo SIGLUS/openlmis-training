@@ -4,14 +4,16 @@
 DB_ID=$(docker ps -aqf "name=trainingdb")
 
 echo $DB_ID
-echo "copy dump to db"
 
 # copy data to trainingdb container, and set data
 docker cp dumpForTraining.sql $DB_ID:/dumpForTraining.sql
+echo "copying dump to db"
 
+sleep 10
 echo "dump has benn copied"
 
 echo "========================="
+echo "setting up data to container:"
 echo $DB_ID
 echo "========================="
 

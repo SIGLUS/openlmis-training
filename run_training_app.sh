@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
 #init all containers, and get trainingdb container id
-docker-compose up -d && echo "Containers are booting up!" && DB_ID=$(docker ps -aqf "name=trainingdb")
+docker-compose rm --all && docker-compose pull && docker-compose build --no-cache && docker-compose up -d --force-recreate
+echo "Containers are booting up!"
+sleep 7
+DB_ID=$(docker ps -aqf "name=trainingdb")
 
 chmod +x ./check_docker_container.sh
 chmod +x ./setup_db.sh
