@@ -5,7 +5,7 @@ docker-compose down --volumes  && docker-compose pull && docker-compose up -d --
 echo "Containers are booting up, please wait a few seconds"
 sleep 10
 APP_ID=$(docker ps -aqf "name=openlmis")
-DB_ID=$(docker ps -aqf "name=postgres")
+DB_ID=$(docker ps -aqf "name=trainingdb")
 
 chmod +x ./check_docker_container.sh
 

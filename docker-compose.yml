@@ -7,8 +7,8 @@ services:
     env_file:
       - ./db.env
     links:
-      - postgres
-  postgres:
+      - trainingdb
+  trainingdb:
     image: "postgres:9.4"
     env_file:
       - ./db.env
