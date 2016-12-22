@@ -10,8 +10,11 @@ DB_ID=$(docker ps -aqf "name=trainingdb")
 chmod +x ./check_docker_container.sh
 
 #copy dump and migrate script to db container
-./check_docker_container.sh $DB_ID && echo "setting data" && docker cp dumpForTraining.sql $DB_ID:/dumpForTraining.sql
+./check_docker_container.sh $DB_ID && echo "Setting data" && docker cp dumpForTraining.sql $DB_ID:/dumpForTraining.sql
 sleep 10
 ./check_docker_container.sh $DB_ID && docker cp migrate.sh $DB_ID:/migrate.sh
 
 docker exec -it $DB_ID bash /migrate.sh
+
+echo "Please go to browser with this URL: http://localhost:8080"
+echo "Login with account: Admin123, password: password1"
