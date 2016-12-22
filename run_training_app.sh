@@ -1,13 +1,17 @@
 #!/usr/bin/env bash
 
 #init all containers, and get trainingdb container id
-docker-compose stop && docker-compose rm -f -v && docker-compose pull && docker-compose build --no-cache && docker-compose up -d --force-recreate
-echo "Containers are booting up!"
-sleep 7
-DB_ID=$(docker ps -aqf "name=trainingdb")
+docker-compose down --volumes  && docker-compose pull && docker-compose up -d --force-recreate
+echo "Containers are booting up, please wait a few seconds"
+sleep 10
+APP_ID=$(docker ps -aqf "name=openlmis")
+DB_ID=$(docker ps -aqf "name=postgres")
 
 chmod +x ./check_docker_container.sh
-chmod +x ./setup_db.sh
 
-#check status of trainingdb container, and set up seed data if it is running
-./check_docker_container.sh $DB_ID && echo "setting data" && ./setup_db.sh
+#copy dump and migrate script to db container
+./check_docker_container.sh $DB_ID && echo "setting data" && docker cp dumpForTraining.sql $DB_ID:/dumpForTraining.sql
+sleep 10
+./check_docker_container.sh $DB_ID && docker cp migrate.sh $DB_ID:/migrate.sh
+
+docker exec -it $DB_ID bash /migrate.sh
