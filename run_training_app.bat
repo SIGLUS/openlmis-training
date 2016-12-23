@@ -1,7 +1,5 @@
-#!/usr/bin/env bash
-
 #init all containers, and get trainingdb container id
-docker-compose down --volumes && docker-compose pull && docker-compose up -d --force-recreate
+docker-compose down --volumes  && docker-compose pull && docker-compose up -d --force-recreate
 
 APP_ID=$(docker ps -aqf "name=openlmis")
 DB_ID=$(docker ps -aqf "name=trainingdb")
