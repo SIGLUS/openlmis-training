@@ -11,4 +11,4 @@ done
 
 echo "import data"
 
-[ -f ./dumpForTraining.sql ] && psql -U $POSTGRES_USER -d $POSTGRES_DB < dumpForTraining.sql
+[ -f ./dumpForTraining.sql ] && psql -U $POSTGRES_USER -d $POSTGRES_DB < dumpForTraining.sql && echo "Done, please open localhost:8080 in browser"
