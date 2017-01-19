@@ -2,3 +2,7 @@
 dumpForTraining*
 DS_Store
 temp.txt
+env
+localrun.sh
+.idea/
+*.iml

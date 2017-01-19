@@ -1,7 +1,7 @@
 version: '2'
 services:
   openlmis:
-    image: "lmis/openlmis-training:latest"
+    image: "lmistrainingapp/openlmis-localised"
     ports:
       - "8080:8080"
     env_file:
