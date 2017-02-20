@@ -9,6 +9,8 @@ DB_ID=$(docker ps -aqf "name=trainingdb")
 #copy dump and migrate script to db container
 
 docker cp dumpForTraining.sql $DB_ID:/dumpForTraining.sql
+docker cp changeTimeStamp.sql $DB_ID:/changeTimeStamp.sql
+docker cp generateReportViews.sql $DB_ID:/generateReportViews.sql
 docker cp migrate.sh $DB_ID:/migrate.sh
 
 docker inspect --format="{{ .State.Running }}" $DB_ID
