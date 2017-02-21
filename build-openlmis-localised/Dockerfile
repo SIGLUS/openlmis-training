@@ -1,5 +1,5 @@
-FROM tomcat:7.0.72-jre7
-MAINTAINER CPF
+FROM tomcat:7.0.75-jre7
+MAINTAINER ThoughtWorks
 
 #add the build time scripts, and run them
 ADD build_time /build_time
