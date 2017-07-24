@@ -27,16 +27,16 @@ pip install -r /app/cubes/bin/requirements.txt
 
 #add properties file that will contain db credentials
 mkdir -p /usr/local/tomcat/extra_properties
-wget -O /usr/local/tomcat/extra_properties/app.properties https://raw.githubusercontent.com/clintonhealthaccess/openlmis-devops/master/deployment/configuration/files/env/demo/app.properties
-wget -O /usr/local/tomcat/extra_properties/atomfeed.properties https://raw.githubusercontent.com/clintonhealthaccess/openlmis-devops/master/deployment/configuration/files/env/demo/atomfeed.properties
-wget -O /usr/local/tomcat/extra_properties/default.properties https://raw.githubusercontent.com/clintonhealthaccess/openlmis-devops/master/deployment/configuration/files/env/demo/default.properties
-wget -O /usr/local/tomcat/extra_properties/mailing.properties https://raw.githubusercontent.com/clintonhealthaccess/openlmis-devops/master/deployment/configuration/files/env/demo/mailing.properties
+wget -O /usr/local/tomcat/extra_properties/app.properties https://raw.githubusercontent.com/SIGLUS/openlmis-devops/master/deployment/configuration/files/env/demo/app.properties
+wget -O /usr/local/tomcat/extra_properties/atomfeed.properties https://raw.githubusercontent.com/SIGLUS/openlmis-devops/master/deployment/configuration/files/env/demo/atomfeed.properties
+wget -O /usr/local/tomcat/extra_properties/default.properties https://raw.githubusercontent.com/SIGLUS/openlmis-devops/master/deployment/configuration/files/env/demo/default.properties
+wget -O /usr/local/tomcat/extra_properties/mailing.properties https://raw.githubusercontent.com/SIGLUS/openlmis-devops/master/deployment/configuration/files/env/demo/mailing.properties
 
 #add SIMAM template files
 mkdir -p /app/tomcat/openlmis/emailattachment/template
 mkdir -p /app/tomcat/openlmis/emailattachment/cache
 mkdir -p /app/tomcat/openlmis/tmp
 
-wget -O /app/tomcat/openlmis/emailattachment/template/template_Simam_import_Regimen.xlsx https://github.com/clintonhealthaccess/open-lmis/raw/2.0-moz/modules/export/src/main/resources/templates/template_Simam_import_Regimen.xlsx
-wget -O /app/tomcat/openlmis/emailattachment/template/template_Simam_import_Regimen_EMPTY.xlsx https://github.com/clintonhealthaccess/open-lmis/raw/2.0-moz/modules/export/src/main/resources/templates/template_Simam_import_Regimen_EMPTY.xlsx
-wget -O /app/tomcat/openlmis/emailattachment/template/template_Simam_import_Requi.xlsx https://github.com/clintonhealthaccess/open-lmis/raw/2.0-moz/modules/export/src/main/resources/templates/template_Simam_import_Requi.xlsx
+wget -O /app/tomcat/openlmis/emailattachment/template/template_Simam_import_Regimen.xlsx https://github.com/SIGLUS/open-lmis/raw/2.0-moz/modules/export/src/main/resources/templates/template_Simam_import_Regimen.xlsx
+wget -O /app/tomcat/openlmis/emailattachment/template/template_Simam_import_Regimen_EMPTY.xlsx https://github.com/SIGLUS/open-lmis/raw/2.0-moz/modules/export/src/main/resources/templates/template_Simam_import_Regimen_EMPTY.xlsx
+wget -O /app/tomcat/openlmis/emailattachment/template/template_Simam_import_Requi.xlsx https://github.com/SIGLUS/open-lmis/raw/2.0-moz/modules/export/src/main/resources/templates/template_Simam_import_Requi.xlsx
