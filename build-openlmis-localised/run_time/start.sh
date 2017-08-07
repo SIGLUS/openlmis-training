@@ -5,7 +5,7 @@
 ruby /run_time/replace_configs.rb
 
 #run migration
-#/run_time/migration.sh
+sh /run_time/migration.sh
 
 #start cubes
 sh /app/cubes/bin/start.sh
