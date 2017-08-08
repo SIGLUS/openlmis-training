@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 echo "import data"
-psql -U $POSTGRES_USER -h $POSTGRES_HOST -d $POSTGRES_DB < dumpForTraining.sql && echo "Data import done"
+PGPASSWORD=$POSTGRES_PASSWORD psql -U $POSTGRES_USER -h $POSTGRES_HOST -d $POSTGRES_DB < /run_time/dumpForTraining.sql && echo "Data import done"
 
 echo "Change timestamp"
-psql -U $POSTGRES_USER -h $POSTGRES_HOST -d $POSTGRES_DB < changeTimeStamp.sql && echo "Timestamp change done"
+PGPASSWORD=$POSTGRES_PASSWORD psql -U $POSTGRES_USER -h $POSTGRES_HOST -d $POSTGRES_DB < /run_time/changeTimeStamp.sql && echo "Timestamp change done"
 
 echo "Run migrations"
 /opt/flyway/flyway \
@@ -29,4 +29,4 @@ echo "Run migrations"
  migrate
 
 echo "Generate reports"
-psql -U $POSTGRES_USER -h $POSTGRES_HOST -d $POSTGRES_DB < generateReportViews.sql && echo "Report generation done, please open localhost:8080 in browser"
+PGPASSWORD=$POSTGRES_PASSWORD psql -U $POSTGRES_USER -h $POSTGRES_HOST -d $POSTGRES_DB < /run_time/generateReportViews.sql && echo "Report generation done, please open localhost:8080 in browser"

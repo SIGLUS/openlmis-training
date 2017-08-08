@@ -15,7 +15,7 @@ https://52.69.16.156:8080/job/Lmis-cubes/lastSuccessfulBuild/artifact/open-lmis/
 #unzip migration jars and add one extra migration file that creates atomfeed schema
 unzip /usr/local/tomcat/webapps/db/db.jar -d /opt/flyway/sql/db
 unzip /usr/local/tomcat/webapps/db/migration.jar -d /opt/flyway/sql/migration
-echo "CREATE SCHEMA atomfeed;" > /opt/flyway/sql/db/V1__create_atomfeed_schema.sql
+# echo "CREATE SCHEMA atomfeed;" > /opt/flyway/sql/db/V1__create_atomfeed_schema.sql
 
 #put cubes package in /app/cubes
 mkdir -p /app/cubes && wget -O /app/cubes/cubes.zip --auth-no-challenge --http-user=user_ansible --no-check-certificate --http-password=b5c5990592a49e0df211b0e704d3bdd0 \
