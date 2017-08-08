@@ -1,5 +1,15 @@
 #!/usr/bin/env bash
 
+userexists=0
+
+while [ "$userexists" != '1' ]
+do
+    userexists=$(PGPASSWORD=$POSTGRES_PASSWORD psql $POSTGRES_DB -U $POSTGRES_USER -h $POSTGRES_HOST  -tAc "SELECT '1' FROM pg_roles WHERE rolname='$POSTGRES_USER'")
+    echo "waiting for DB to start"
+    sleep 1
+done
+
+
 echo "import data"
 PGPASSWORD=$POSTGRES_PASSWORD psql -U $POSTGRES_USER -h $POSTGRES_HOST -d $POSTGRES_DB < /run_time/dumpForTraining.sql && echo "Data import done"
 
